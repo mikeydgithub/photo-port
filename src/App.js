@@ -1,25 +1,20 @@
-import logo from './logo.svg';
+// import react in every file component. also import images or css at the top.
+import React from 'react';
 import './App.css';
+import About from './components/About';
+import Nav from './components/Nav';
 
+
+// language called JSX that can represnet HTML in JS.
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+ return (
+   <div>
+     <Nav></Nav>
+     <main>
+       <About></About>
+     </main>
+   </div>
+ );
 }
 
 export default App;
