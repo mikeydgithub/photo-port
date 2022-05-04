@@ -1,20 +1,21 @@
 /* eslint-disable no-restricted-globals */
 import React from 'react';
+import { capitalizeFirstLetter  } from '../../utils/helpers';
 
-const catergories = [
-    {name: "commercial", description:"Photos of grocery stores, food trucks, and other commercial projects"},
-    {name: "portraits", description: "Portraits of people in my life"},
-    {name: "food", description: "Delicious delicacies"},
-    {name: "landscape", description: "Fields, farmhouses, waterfalls, and the beauty of nature"}
-];
+function Nav(props){
+    const {
+        categories = [],
+        setCurrentCategory,
+        currentCategory
+    } = props
 
-function categorySelected(index) {
-    return console.log(catergories[index].name)  
-}
+    const handleClick = (item) => {
+        console.log(item);
+        return item;
+    };
 
-function Nav(){
-    return(
-        <header>
+    return (
+        <header className="flex-row px-1">
             <h2>
                 <a data-testid="link" href="/">
                     <span role="img" aria-label="camera"> 📸</span> Oh Snap!
@@ -27,23 +28,30 @@ function Nav(){
                             About me
                         </a>
                     </li>
-                    <li>
-                        <span>Contact</span>
+                    <li className={"mx-2"}>
+                        <span onClick={() => handleClick('Contact')}>
+                            Contact
+                        </span>
                     </li>
-                    {catergories.map((category, index) => (
+                    {categories.map((category) => (
                         <li
-                        className="mx-1"
+                        className={`mx-1 ${
+                            currentCategory.name === category.name
+                        }`}
                         key={category.name}
                         >
-                            <span onClick={() => categorySelected(index)}>
-                                {category.name}
+                            <span onClick={() => {
+                                setCurrentCategory(category)
+                            }}
+                            >
+                                {capitalizeFirstLetter(category.name)}
                             </span>
                         </li>
                     ))}
                 </ul>
             </nav>
         </header>
-    )
-};
+    );
+}
 
 export default Nav;

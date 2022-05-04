@@ -15,7 +15,7 @@ import '@testing-library/jest-dom/extend-expect';
 import About from '..';
 
 // Configure the testing enovironment
-// we'll use cleanup function using the afterEach global function from JEst
+// we'll use cleanup function using the afterEach global function from Jest
 afterEach(cleanup);
 
 // create a baseline test
