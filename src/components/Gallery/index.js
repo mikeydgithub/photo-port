@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
-import {capitalizeFirstLetter} from '../../utils/helpers';
 import PhotoList from '../PhotoList';
+import {capitalizeFirstLetter} from '../../utils/helpers';
 
 // create the gallery component
 function Gallery(props) {
