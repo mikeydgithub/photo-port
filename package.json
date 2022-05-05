@@ -1,4 +1,5 @@
 {
+  "homepage": "http://mikeydgithub.github.io/photo-port",
   "name": "photo-port",
   "version": "0.1.0",
   "private": true,
@@ -15,7 +16,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -46,5 +49,8 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/mikeydgithub/photo-port/issues"
+  },
+  "devDependencies": {
+    "gh-pages": "^3.2.3"
   }
 }
