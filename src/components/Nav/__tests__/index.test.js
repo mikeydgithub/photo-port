@@ -12,6 +12,8 @@ const categories = [
 ]
 const mockCurrentCategory = jest.fn();
 const mockSetCurrentCategory = jest.fn();
+const mockContactSelected = jest.fn();
+const mockSetContactSelected = jest.fn();
 
 // Configure the testing environment
 afterEach (cleanup);
@@ -23,6 +25,8 @@ describe('Nav component', () => {
             categories={categories}
             setCurrentCategory={mockSetCurrentCategory}
             currentCategory={mockCurrentCategory}
+            contactSelected={mockContactSelected}
+            setContactSelected={mockSetContactSelected}
             />);
     });
 
@@ -57,11 +61,7 @@ describe('emoji is visible', () => {
 describe('links are visible', () => {
     it('inserts text into the links', () => {
         // arrange
-        const { getByTestId } = render(<Nav
-            categories={categories}
-            setCurrentCategory={mockSetCurrentCategory}
-            currentCategory={mockCurrentCategory} 
-        />);      
+        const { getByTestId } = render(<Nav/>);      
         // assert
         expect(getByTestId('link')).toHaveTextContent('Oh Snap!');
         expect(getByTestId('about')).toHaveTextContent('About me');
